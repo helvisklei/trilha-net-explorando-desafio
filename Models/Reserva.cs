@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace DesafioProjetoHospedagem.Models
 {
     public class Reserva
@@ -10,27 +12,29 @@ namespace DesafioProjetoHospedagem.Models
 
         public Reserva(int diasReservados)
         {
-            DiasReservados = diasReservados;        }
+            DiasReservados = diasReservados; 
+            
+        }
 
         public void CadastrarHospedes(List<Pessoa> hospedes)
         {
-            // Verificar a capacidade é maior ou igual ao número de hóspedes sendo recebido
-            
+            // Verificar a capacidade é maior ou igual ao número de hóspedes sendo recebido            
             if (Suite.Capacidade >= hospedes.Count )
             {
                 Hospedes = hospedes;
             }
             else
-            {
-                // Retornar uma exception caso a capacidade seja menor que o número de hóspedes recebido                                
+            {  
+                 // Retornar uma exception caso a capacidade seja menor que o número de hóspedes recebido                                
                 Console.WriteLine($"Não Há suites disponiveis para essa quantidade de pessoas {hospedes.Count}");
-                throw new Exception($"A capacidade máxima da suite é para {Suite.Capacidade} pessoas");              
-                
-            }        }
+                throw new Exception($"A capacidade máxima da suite é para {Suite.Capacidade} pessoas");            
+            }    
+        }
 
         public void CadastrarSuite(Suite suite)
         {
-            Suite = suite;        }
+            Suite = suite; 
+        }
 
         public int ObterQuantidadeHospedes()
         {
@@ -52,5 +56,6 @@ namespace DesafioProjetoHospedagem.Models
 
             return valor;
         }
+
     }
 }
